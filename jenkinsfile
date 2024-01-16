@@ -41,7 +41,7 @@ pipeline {
                     writeFile file: 'validation_stage_data.json', text: response
                     echo 'Build data saved to validation_stage_data.json'
                     //echo response
-                    bat 'validation_stage_data.json'
+                    bat 'type validation_stage_data.json'
                 }   
             }   
         }
