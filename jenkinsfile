@@ -35,10 +35,11 @@ pipeline {
                     echo "Validation URL : "+ validationURL
                     //sh "curl"
                     //sh "curl -X GET -H \"Content-Type:application/json\" ${validationURL}"
-                    def response = sh(script: "curl -s ${validationURL}", returnStdout: true).trim()
+                    //def response = sh(script: "curl -s ${validationURL}", returnStdout: true).trim()
+                    def response = bat(script: "start /B curl -s ${apiUrl}", returnStdout: true).trim()
                     writeFile file: 'validation_stage_data.json', text: response
                     echo 'Build data saved to validation_stage_data.json'
-                    //echo response
+                    echo response
                 }   
             }   
         }
