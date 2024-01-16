@@ -31,8 +31,8 @@ pipeline {
                 script {
                     // Your code to run Validation Stage
                     echo 'Running Validation Stage to verify Stage Data..'
-                    def validationURL = "${BUILD_URL}wfapi/describe"
-                    //def apiUrl = 'http://admin:3d059085c58c439abda36bfa6717dffa@localhost:8080/job/Test_Mode/14/wfapi/describe'
+                    //def validationURL = "${BUILD_URL}wfapi/describe"
+                    def validationURL = 'http://admin:3d059085c58c439abda36bfa6717dffa@localhost:8080/job/Test_Mode/14/wfapi/describe'
                     echo "Validation URL : "+ validationURL
                     //sh "curl"
                     //sh "curl -X GET -H \"Content-Type:application/json\" ${validationURL}"
