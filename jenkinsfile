@@ -40,7 +40,8 @@ pipeline {
                     def response = bat(script: "start /B curl -s ${apiUrl}", returnStdout: true).trim()
                     writeFile file: 'validation_stage_data.json', text: response
                     echo 'Build data saved to validation_stage_data.json'
-                    echo response
+                    //echo response
+                    bat 'validation_stage_data.json'
                 }   
             }   
         }
