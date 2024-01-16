@@ -41,7 +41,7 @@ pipeline {
                     writeFile file: 'validation_stage_data.json', text: response
                     echo 'Build data saved to validation_stage_data.json'
                     //echo response
-                    sh "cat validation_stage_data.json"
+                    sh "cat validation_stage_data | jq."
                     
                 }   
             }   
