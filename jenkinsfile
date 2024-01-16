@@ -29,21 +29,11 @@ pipeline {
         stage('Validation Stage') {
             steps {
                 script {
-                    // Your code to run Validation Stage
                     echo 'Running Validation Stage to verify Stage Data..'
-                    //def validationURL = "${BUILD_URL}wfapi/describe"
                     def validationURL = 'http://admin:da531f020d754f8b9c303f3d13188b2e@localhost:8080/job/Test_Mode/7/wfapi/describe'
                     echo "Validation URL : "+ validationURL
-                    //sh "curl"
-                    //sh "curl -X GET -H \"Content-Type:application/json\" ${validationURL}"
-                    //def response = sh(script: "curl -s ${validationURL}", returnStdout: true).trim()
-                    //def response = bat(script: "start /B curl -s ${apiUrl}", returnStdout: true).trim()
                     sh "curl -o validation_stage_data ${validationURL}"
-                    //writeFile file: 'validation_stage_data.json', text: response
-                    //echo 'Build data saved to validation_stage_data.json'
-                    //echo response
                     sh "cat validation_stage_data | jq ."
-                    
                 }   
             }   
         }
