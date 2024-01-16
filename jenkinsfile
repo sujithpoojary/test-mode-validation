@@ -30,7 +30,7 @@ pipeline {
             steps {
                 // Your code to run Validation Stage
                 echo 'Runing Validation Stage to verify Stage Data..'
-                def validationURL = '${BUILD_URL}/wfapi/describe'
+                def validationURL = "${BUILD_URL}/wfapi/describe"
                 echo "Validation URL : "+ validationURL
                 sh "curl -o validationstages -X GET -H \"Content-Type:application/json\" ${validationURL}"
             }
